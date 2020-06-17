@@ -15,6 +15,10 @@
       <SearchIcon height="24" width="24" />
     </TextInput>
     <br />
+    <Dropdown text="Logout">
+      <Avatar />
+    </Dropdown>
+    <br />
     <ArrowDropUpIcon />
     <ArrowDropDownIcon />
     <CheckIcon />
@@ -23,12 +27,16 @@
     <StarBorderIcon />
     <StarIcon />
     <GroupIcon />
+    <a target="_blank" href="https://icons8.com/icons/set/user">User icon</a>
+    icon by <a target="_blank" href="https://icons8.com">Icons8</a>
   </div>
 </template>
 
 <script lang="ts">
 import Button from "./components/common/Button.vue";
 import TextInput from "./components/common/TextInput.vue";
+import Dropdown from "./components/common/Dropdown.vue";
+import Avatar from "./components/common/Avatar.vue";
 import ArrowDropUpIcon from "./components/icons/ArrowDropUpIcon.vue";
 import ArrowDropDownIcon from "./components/icons/ArrowDropDownIcon.vue";
 import CheckIcon from "./components/icons/CheckIcon.vue";
@@ -42,6 +50,8 @@ export default {
   components: {
     Button,
     TextInput,
+    Dropdown,
+    Avatar,
     ArrowDropUpIcon,
     ArrowDropDownIcon,
     CheckIcon,

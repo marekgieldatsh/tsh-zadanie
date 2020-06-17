@@ -24,24 +24,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../styles/variables.scss";
 .textInputContainer {
   border-radius: 8px;
   border: solid 1px $accent;
-  height: 2.67rem;
+  height: rem(48px);
   display: inline-flex;
   align-items: center;
 
   &__input {
     border: none;
     border-radius: inherit;
-    height: 98%;
-    font-size: 0.875rem;
+    height: 95%;
+    font-size: rem(14px);
+    padding-left: rem(16px);
   }
 
   &__icon {
     display: inherit;
-    padding: 1rem 0.75rem;
+    padding: rem(16px) rem(12px);
   }
 }
 </style>
