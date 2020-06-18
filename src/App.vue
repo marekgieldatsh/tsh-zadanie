@@ -21,6 +21,12 @@
       </Dropdown>
     </div>
     <br />
+    <Checkbox label="Toggle" @onToggle="onCheckboxToggle" />
+    <br />
+    <Checkbox label="Toggle" @onToggle="onCheckboxToggle" />
+    <br />
+    <Checkbox label="Toggle" @onToggle="onCheckboxToggle" />
+    <br />
     <ArrowDropUpIcon />
     <ArrowDropDownIcon />
     <CheckIcon />
@@ -40,6 +46,7 @@ import Button from "./components/common/Button.vue";
 import TextInput from "./components/common/TextInput.vue";
 import Dropdown from "./components/common/Dropdown.vue";
 import Avatar from "./components/common/Avatar.vue";
+import Checkbox from "./components/common/Checkbox.vue";
 import ArrowDropUpIcon from "./components/icons/ArrowDropUpIcon.vue";
 import ArrowDropDownIcon from "./components/icons/ArrowDropDownIcon.vue";
 import CheckIcon from "./components/icons/CheckIcon.vue";
@@ -55,6 +62,7 @@ export default {
     TextInput,
     Dropdown,
     Avatar,
+    Checkbox,
     ArrowDropUpIcon,
     ArrowDropDownIcon,
     CheckIcon,
@@ -73,12 +81,19 @@ export default {
     },
     onDropdownClick() {
       console.log("dropdown clicked");
+    },
+    onCheckboxToggle(isChecked: boolean) {
+      console.log(isChecked);
     }
   }
 };
 </script>
 
 <style lang="scss">
+* {
+  margin: 0;
+}
+
 #app {
   font-family: "Nunito", sans-serif;
 }

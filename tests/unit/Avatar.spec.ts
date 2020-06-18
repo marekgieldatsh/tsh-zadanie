@@ -1,7 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
 import Avatar from "@/components/common/Avatar.vue";
 
-
 describe("Avatar.vue", () => {
   const wrapper = shallowMount(Avatar, {
     propsData: {
