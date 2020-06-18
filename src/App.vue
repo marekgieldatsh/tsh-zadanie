@@ -23,9 +23,15 @@
     <br />
     <Checkbox label="Toggle" @onToggle="onCheckboxToggle" />
     <br />
-    <Checkbox label="Toggle" @onToggle="onCheckboxToggle" />
     <br />
-    <Checkbox label="Toggle" @onToggle="onCheckboxToggle" />
+    <br />
+    <Pagination
+      :currentPage="40"
+      :numberOfPages="100"
+      @onPageSelected="onPageSelected"
+    />
+    <br />
+    <br />
     <br />
     <ArrowDropUpIcon />
     <ArrowDropDownIcon />
@@ -47,6 +53,7 @@ import TextInput from "./components/common/TextInput.vue";
 import Dropdown from "./components/common/Dropdown.vue";
 import Avatar from "./components/common/Avatar.vue";
 import Checkbox from "./components/common/Checkbox.vue";
+import Pagination from "./components/common/Pagination.vue";
 import ArrowDropUpIcon from "./components/icons/ArrowDropUpIcon.vue";
 import ArrowDropDownIcon from "./components/icons/ArrowDropDownIcon.vue";
 import CheckIcon from "./components/icons/CheckIcon.vue";
@@ -63,6 +70,7 @@ export default {
     Dropdown,
     Avatar,
     Checkbox,
+    Pagination,
     ArrowDropUpIcon,
     ArrowDropDownIcon,
     CheckIcon,
@@ -84,6 +92,9 @@ export default {
     },
     onCheckboxToggle(isChecked) {
       console.log(isChecked);
+    },
+    onPageSelected(data) {
+      console.log(data);
     }
   }
 };
@@ -92,6 +103,7 @@ export default {
 <style lang="scss">
 * {
   margin: 0;
+  padding: 0;
 }
 
 #app {
