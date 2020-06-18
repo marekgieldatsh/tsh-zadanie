@@ -41,7 +41,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Button from "./components/common/Button.vue";
 import TextInput from "./components/common/TextInput.vue";
 import Dropdown from "./components/common/Dropdown.vue";
@@ -82,7 +82,7 @@ export default {
     onDropdownClick() {
       console.log("dropdown clicked");
     },
-    onCheckboxToggle(isChecked: boolean) {
+    onCheckboxToggle(isChecked) {
       console.log(isChecked);
     }
   }

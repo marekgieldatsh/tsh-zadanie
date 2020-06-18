@@ -1,4 +1,3 @@
-
 import { shallowMount } from "@vue/test-utils";
 import ArrowDropUpIcon from "@/components/icons/ArrowDropUpIcon.vue";
 import ArrowDropDownIcon from "@/components/icons/ArrowDropDownIcon.vue";
@@ -18,15 +17,15 @@ const components = [
   StarBorderIcon,
   StarIcon,
   GroupIcon
-]
+];
 
 describe("icons", () => {
   const wrappers = components.map(component => shallowMount(component));
 
-  it('have svg elements', () => {
+  it("have svg elements", () => {
     wrappers.forEach(wrapper => {
-      const svg = wrapper.find('svg')
-      expect(svg.exists()).toBe(true)
-    })
-  })
+      const svg = wrapper.find("svg");
+      expect(svg.exists()).toBe(true);
+    });
+  });
 });
