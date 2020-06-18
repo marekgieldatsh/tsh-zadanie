@@ -35,6 +35,7 @@ export default {
 
 <style lang="scss" scoped>
 .button {
+  @include clickable;
   background-color: $primary;
   color: $white;
   border: none;

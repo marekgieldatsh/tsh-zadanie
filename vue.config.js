@@ -5,6 +5,7 @@ module.exports = {
         prependData: `
           @import "./node_modules/sass-rem/_rem.scss";
           @import "./src/styles/_variables.scss";
+          @import "./src/styles/_mixins.scss";
         `
       }
     }

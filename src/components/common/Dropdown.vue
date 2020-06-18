@@ -1,16 +1,29 @@
 <template>
-  <div class="dropdownContainer" v-on:click="toggleDropdown()">
-    <slot></slot>
-    <span class="dropdownContainer__dropdown" v-if="isOpen">dsjhdjshdjsjdsjdjshdjhsdhjsdhjsdhjshdjshdjshdjshdjshdjshdjshdjshdjsdhsjdhsjdhsjdshdj{{ text }}</span>
+  <div class="dropdownContainer" v-click-outside="closeDropdown">
+    <span
+      class="dropdownContainer__wrappedElement"
+      v-on:click="toggleDropdown()"
+    >
+      <slot></slot>
+    </span>
+    <span class="dropdownContainer__dropdown" v-if="isOpen">
+      <span class="dropdownContainer__link" v-on:click="$emit('onClick')">{{
+        text
+      }}</span>
+    </span>
   </div>
 </template>
 
 <script>
+import ClickOutside from "vue-click-outside";
 export default {
   props: {
     text: {
       type: String,
       default: ""
+    },
+    onClick: {
+      type: Event
     }
   },
   data() {
@@ -21,7 +34,13 @@ export default {
   methods: {
     toggleDropdown() {
       this.isOpen = !this.isOpen;
+    },
+    closeDropdown() {
+      this.isOpen = false;
     }
+  },
+  directives: {
+    ClickOutside
   }
 };
 </script>
@@ -36,9 +55,14 @@ export default {
     border-radius: 4px;
     position: absolute;
     margin-top: rem(10px);
+    margin-left: -(rem(184px - 48px));
     min-width: rem(184px - 32px);
     display: inline-flex;
     align-items: center;
+  }
+
+  &__link {
+    @include clickable;
   }
 }
 </style>

@@ -17,6 +17,7 @@ export default {
 
 <style lang="scss" scoped>
 .avatar {
+  @include clickable;
   width: rem(48px);
   height: rem(48px);
   &__image {

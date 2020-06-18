@@ -15,9 +15,11 @@
       <SearchIcon height="24" width="24" />
     </TextInput>
     <br />
-    <Dropdown text="Logout">
-      <Avatar />
-    </Dropdown>
+    <div style="width: 100%; display: flex; justify-content: flex-end;">
+      <Dropdown text="Logout" @onClick="onDropdownClick">
+        <Avatar image="photo.png" />
+      </Dropdown>
+    </div>
     <br />
     <ArrowDropUpIcon />
     <ArrowDropDownIcon />
@@ -28,7 +30,8 @@
     <StarIcon />
     <GroupIcon />
     <a target="_blank" href="https://icons8.com/icons/set/user">User icon</a>
-    icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+    icon by
+    <a target="_blank" href="https://icons8.com">Icons8</a>
   </div>
 </template>
 
@@ -67,6 +70,9 @@ export default {
     },
     onTextChange() {
       console.log("text changed");
+    },
+    onDropdownClick() {
+      console.log("dropdown clicked");
     }
   }
 };
