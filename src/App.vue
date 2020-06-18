@@ -33,6 +33,8 @@
     <br />
     <br />
     <br />
+    <clip-loader :loading="loading" color="#4460f7" :size="size"></clip-loader>
+    <br />
     <ArrowDropUpIcon />
     <ArrowDropDownIcon />
     <CheckIcon />
@@ -54,6 +56,7 @@ import Dropdown from "./components/common/Dropdown.vue";
 import Avatar from "./components/common/Avatar.vue";
 import Checkbox from "./components/common/Checkbox.vue";
 import Pagination from "./components/common/Pagination.vue";
+import ClipLoader from "vue-spinner/src/ClipLoader.vue";
 import ArrowDropUpIcon from "./components/icons/ArrowDropUpIcon.vue";
 import ArrowDropDownIcon from "./components/icons/ArrowDropDownIcon.vue";
 import CheckIcon from "./components/icons/CheckIcon.vue";
@@ -71,6 +74,7 @@ export default {
     Avatar,
     Checkbox,
     Pagination,
+    ClipLoader,
     ArrowDropUpIcon,
     ArrowDropDownIcon,
     CheckIcon,
