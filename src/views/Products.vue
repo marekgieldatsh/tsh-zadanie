@@ -1,30 +1,41 @@
 <template>
-  <div class="productsContainer">
+  <div class="productsPage">
     <Container>
-      <header class="productsContainer__header">
-        <div class="productsContainer__header__logo">
+      <header class="productsPage__header">
+        <div class="productsPage__header__logo">
           <Logo />
         </div>
 
-        <div class="productsContainer__header__searchFilters">
-          <TextInput class="productsContainer__header__search" placeholder="Search">
+        <div class="productsPage__header__searchFilters">
+          <TextInput class="productsPage__header__search" placeholder="Search">
             <SearchIcon />
           </TextInput>
 
-          <div class="productsContainer__header__filters">
+          <div class="productsPage__header__filters">
             <Checkbox label="Active" @onToggle="onChangeActive()" />
             <Checkbox label="Promo" @onToggle="onChangePromo()" />
           </div>
         </div>
 
-        <div class="productsContainer__header__userStatus">
+        <div class="productsPage__header__userStatus">
           <Dropdown text="Logout" @onClick="onClickLogout()">
             <Avatar />
           </Dropdown>
         </div>
       </header>
     </Container>
-    <section></section>
+    <section class="productsPage__content">
+      <Container>
+        <Card
+          image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZKgVuTZDAyVFfBO-zPtRtIa3n-JRYcLdZ5gZvrVv79H-AbrC_&usqp=CAU"
+          title="Nike Running Shoes"
+          text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
+          :rating="2"
+          @onShowDetails="onClickCard()"
+          @onRated="onRated()"
+        />
+      </Container>
+    </section>
   </div>
 </template>
 
@@ -36,6 +47,7 @@ import Checkbox from "@/components/common/Checkbox.vue";
 import Dropdown from "@/components/common/Dropdown.vue";
 import Avatar from "@/components/common/Avatar.vue";
 import Container from "@/components/common/Container.vue";
+import Card from "@/components/common/Card.vue";
 
 export default {
   name: "Home",
@@ -46,7 +58,8 @@ export default {
     Checkbox,
     Dropdown,
     Avatar,
-    Container
+    Container,
+    Card
   },
   methods: {
     onChangeActive() {
@@ -57,13 +70,19 @@ export default {
     },
     onClickLogout() {
       console.log("On click logout");
+    },
+    onClickCard() {
+      console.log("On click card");
+    },
+    onRated() {
+      console.log("On rated");
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.productsContainer {
+.productsPage {
   &__header {
     margin-top: rem(52px);
     margin-bottom: rem(32px);
@@ -138,6 +157,10 @@ export default {
         order: 2;
       }
     }
+  }
+
+  &__content {
+    background-color: $background;
   }
 }
 </style>
