@@ -7,7 +7,7 @@ describe("Dropdown.vue", () => {
       text: "My_text"
     },
     slots: {
-      default: `<a class="slot_content">Sample</a>`
+      default: `<span class="slot_content">Sample</span>`
     }
   });
 

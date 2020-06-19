@@ -62,6 +62,7 @@ export default {
   &__label {
     padding-left: rem(8px);
     padding-top: rem(1px);
+    font-size: rem(14px);
   }
 }
 </style>

@@ -35,6 +35,7 @@ export default {
     border: none;
     border-radius: inherit;
     height: 95%;
+    width: 100%;
     font-size: rem(14px);
     padding-left: rem(16px);
   }
