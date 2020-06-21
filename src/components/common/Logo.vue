@@ -17,7 +17,7 @@ export default {
       type: Event
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

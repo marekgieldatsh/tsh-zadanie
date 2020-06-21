@@ -38,6 +38,7 @@ export default {
   @include clickable;
   background-color: $primary;
   color: $white;
+  font-size: rem(14px);
   border: none;
   padding: 11px;
   border-radius: 4px;

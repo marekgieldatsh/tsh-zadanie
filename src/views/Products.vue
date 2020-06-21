@@ -25,12 +25,114 @@
       </header>
     </Container>
     <section class="productsPage__content">
-      <Container>
+      <Container class="productsPage__content__cardsWrapper">
         <Card
+          class="productsPage__content__card"
           image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZKgVuTZDAyVFfBO-zPtRtIa3n-JRYcLdZ5gZvrVv79H-AbrC_&usqp=CAU"
           title="Nike Running Shoes"
           text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
           :rating="2"
+          isPromo="true"
+          @onShowDetails="onClickCard()"
+          @onRated="onRated()"
+        />
+        <Card
+          class="productsPage__content__card"
+          image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZKgVuTZDAyVFfBO-zPtRtIa3n-JRYcLdZ5gZvrVv79H-AbrC_&usqp=CAU"
+          title="Nike Running Shoes"
+          text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
+          :rating="2"
+          isPromo="true"
+          @onShowDetails="onClickCard()"
+          @onRated="onRated()"
+        />
+        <Card
+          class="productsPage__content__card"
+          image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZKgVuTZDAyVFfBO-zPtRtIa3n-JRYcLdZ5gZvrVv79H-AbrC_&usqp=CAU"
+          title="Nike Running Shoes"
+          text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
+          :rating="2"
+          isPromo="true"
+          @onShowDetails="onClickCard()"
+          @onRated="onRated()"
+        />
+        <Card
+          class="productsPage__content__card"
+          image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZKgVuTZDAyVFfBO-zPtRtIa3n-JRYcLdZ5gZvrVv79H-AbrC_&usqp=CAU"
+          title="Nike Running Shoes"
+          text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
+          :rating="2"
+          isPromo="true"
+          @onShowDetails="onClickCard()"
+          @onRated="onRated()"
+        />
+        <Card
+          class="productsPage__content__card"
+          image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZKgVuTZDAyVFfBO-zPtRtIa3n-JRYcLdZ5gZvrVv79H-AbrC_&usqp=CAU"
+          title="Nike Running Shoes"
+          text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
+          :rating="2"
+          isPromo="true"
+          @onShowDetails="onClickCard()"
+          @onRated="onRated()"
+        />
+        <Card
+          class="productsPage__content__card"
+          image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZKgVuTZDAyVFfBO-zPtRtIa3n-JRYcLdZ5gZvrVv79H-AbrC_&usqp=CAU"
+          title="Nike Running Shoes"
+          text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
+          :rating="2"
+          isPromo="true"
+          @onShowDetails="onClickCard()"
+          @onRated="onRated()"
+        />
+        <Card
+          class="productsPage__content__card"
+          image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZKgVuTZDAyVFfBO-zPtRtIa3n-JRYcLdZ5gZvrVv79H-AbrC_&usqp=CAU"
+          title="Nike Running Shoes"
+          text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
+          :rating="2"
+          isPromo="true"
+          @onShowDetails="onClickCard()"
+          @onRated="onRated()"
+        />
+        <Card
+          class="productsPage__content__card"
+          image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZKgVuTZDAyVFfBO-zPtRtIa3n-JRYcLdZ5gZvrVv79H-AbrC_&usqp=CAU"
+          title="Nike Running Shoes"
+          text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
+          :rating="2"
+          isPromo="true"
+          @onShowDetails="onClickCard()"
+          @onRated="onRated()"
+        />
+        <Card
+          class="productsPage__content__card"
+          image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZKgVuTZDAyVFfBO-zPtRtIa3n-JRYcLdZ5gZvrVv79H-AbrC_&usqp=CAU"
+          title="Nike Running Shoes"
+          text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
+          :rating="2"
+          isPromo="true"
+          @onShowDetails="onClickCard()"
+          @onRated="onRated()"
+        />
+        <Card
+          class="productsPage__content__card"
+          image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZKgVuTZDAyVFfBO-zPtRtIa3n-JRYcLdZ5gZvrVv79H-AbrC_&usqp=CAU"
+          title="Nike Running Shoes"
+          text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
+          :rating="2"
+          isPromo="true"
+          @onShowDetails="onClickCard()"
+          @onRated="onRated()"
+        />
+        <Card
+          class="productsPage__content__card"
+          image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZKgVuTZDAyVFfBO-zPtRtIa3n-JRYcLdZ5gZvrVv79H-AbrC_&usqp=CAU"
+          title="Nike Running Shoes"
+          text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
+          :rating="2"
+          isPromo="true"
           @onShowDetails="onClickCard()"
           @onRated="onRated()"
         />
@@ -161,6 +263,71 @@ export default {
 
   &__content {
     background-color: $background;
+
+    &__cardsWrapper {
+      @media only screen and (min-width: $mobileLandscape) {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 50% 50%);
+      }
+
+      @media only screen and (min-width: $tabletLandscape) {
+        grid-template-columns: repeat(auto-fill, 33% 33% 33%);
+      }
+
+      @media only screen and (min-width: $desktop) {
+        grid-template-columns: repeat(auto-fill, 25% 25% 25% 25%);
+      }
+    }
+
+    &__card {
+      margin-top: rem(12px);
+      margin-bottom: rem(12px);
+      // max-width: rem(288px);
+
+      @media only screen and (min-width: $mobileLandscape) and (max-width: $tabletLandscape) {
+        margin-top: rem(32px);
+        margin-left: rem(12px);
+        margin-right: rem(12px);
+
+        &:nth-child(odd) {
+          margin-left: 0;
+        }
+
+        &:nth-child(even) {
+          margin-right: 0;
+        }
+      }
+
+      @media only screen and (min-width: $tabletLandscape) and (max-width: $desktop) {
+        margin-top: rem(32px);
+        margin-left: rem(12px);
+        margin-right: rem(12px);
+
+        &:nth-child(3n + 1),
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:nth-child(3n) {
+          margin-right: 0;
+        }
+      }
+
+      @media only screen and (min-width: $desktop) {
+        margin-top: rem(32px);
+        margin-left: rem(12px);
+        margin-right: rem(12px);
+
+        &:nth-child(4n + 1),
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:nth-child(4n) {
+          margin-right: 0;
+        }
+      }
+    }
   }
 }
 </style>
