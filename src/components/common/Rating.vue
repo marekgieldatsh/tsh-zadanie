@@ -6,8 +6,13 @@
       :key="item"
       v-on:click="$emit('onRated', item)"
     >
-      <StarIcon v-if="item <= rating" color="#f9a52b" />
-      <StarBorderIcon v-if="item > rating" color="#f9a52b" />
+      <StarIcon width="13" height="13" v-if="item <= rating" color="#f9a52b" />
+      <StarBorderIcon
+        width="13"
+        height="13"
+        v-if="item > rating"
+        color="#f9a52b"
+      />
     </span>
   </span>
 </template>
@@ -37,7 +42,7 @@ export default {
 .rating {
   &__star {
     @include clickable;
-    margin: 0 rem(11px);
+    margin: 0 rem(6px);
 
     &:first-child {
       margin-left: 0;

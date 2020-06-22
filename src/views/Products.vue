@@ -32,7 +32,7 @@
           title="Nike Running Shoes"
           text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
           :rating="2"
-          isPromo="true"
+          :isPromo="true"
           @onShowDetails="onClickCard()"
           @onRated="onRated()"
         />
@@ -42,7 +42,7 @@
           title="Nike Running Shoes"
           text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
           :rating="2"
-          isPromo="true"
+          :isPromo="true"
           @onShowDetails="onClickCard()"
           @onRated="onRated()"
         />
@@ -52,7 +52,7 @@
           title="Nike Running Shoes"
           text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
           :rating="2"
-          isPromo="true"
+          :isPromo="true"
           @onShowDetails="onClickCard()"
           @onRated="onRated()"
         />
@@ -62,7 +62,7 @@
           title="Nike Running Shoes"
           text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
           :rating="2"
-          isPromo="true"
+          :isPromo="true"
           @onShowDetails="onClickCard()"
           @onRated="onRated()"
         />
@@ -72,7 +72,7 @@
           title="Nike Running Shoes"
           text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
           :rating="2"
-          isPromo="true"
+          :isPromo="true"
           @onShowDetails="onClickCard()"
           @onRated="onRated()"
         />
@@ -82,7 +82,7 @@
           title="Nike Running Shoes"
           text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
           :rating="2"
-          isPromo="true"
+          :isPromo="true"
           @onShowDetails="onClickCard()"
           @onRated="onRated()"
         />
@@ -92,7 +92,7 @@
           title="Nike Running Shoes"
           text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
           :rating="2"
-          isPromo="true"
+          :isPromo="true"
           @onShowDetails="onClickCard()"
           @onRated="onRated()"
         />
@@ -102,7 +102,7 @@
           title="Nike Running Shoes"
           text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
           :rating="2"
-          isPromo="true"
+          :isPromo="true"
           @onShowDetails="onClickCard()"
           @onRated="onRated()"
         />
@@ -112,7 +112,7 @@
           title="Nike Running Shoes"
           text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
           :rating="2"
-          isPromo="true"
+          :isPromo="true"
           @onShowDetails="onClickCard()"
           @onRated="onRated()"
         />
@@ -122,7 +122,7 @@
           title="Nike Running Shoes"
           text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
           :rating="2"
-          isPromo="true"
+          :isPromo="true"
           @onShowDetails="onClickCard()"
           @onRated="onRated()"
         />
@@ -132,7 +132,7 @@
           title="Nike Running Shoes"
           text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
           :rating="2"
-          isPromo="true"
+          :isPromo="true"
           @onShowDetails="onClickCard()"
           @onRated="onRated()"
         />
@@ -186,17 +186,15 @@ export default {
 <style lang="scss" scoped>
 .productsPage {
   &__header {
-    margin-top: rem(52px);
-    margin-bottom: rem(32px);
-    @media only screen and (min-width: $tabletLandscape) {
-      margin-top: rem(48px);
-      margin-bottom: rem(48px);
-    }
+    padding-top: rem(52px);
+    padding-bottom: rem(32px);
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill, 50% 50%);
 
     @media only screen and (min-width: $tabletLandscape) {
+      padding-top: rem(48px);
+      padding-bottom: rem(48px);
       grid-template-columns: repeat(auto-fill, 14% 79% 7%);
     }
 
@@ -263,6 +261,11 @@ export default {
 
   &__content {
     background-color: $background;
+    padding-top: rem(24px);
+
+    @media only screen and (min-width: $mobileLandscape) {
+      padding-top: rem(56px);
+    }
 
     &__cardsWrapper {
       @media only screen and (min-width: $mobileLandscape) {
@@ -280,12 +283,10 @@ export default {
     }
 
     &__card {
-      margin-top: rem(12px);
-      margin-bottom: rem(12px);
-      // max-width: rem(288px);
+      margin-bottom: rem(24px);
 
       @media only screen and (min-width: $mobileLandscape) and (max-width: $tabletLandscape) {
-        margin-top: rem(32px);
+        margin-bottom: rem(32px);
         margin-left: rem(12px);
         margin-right: rem(12px);
 
@@ -299,7 +300,7 @@ export default {
       }
 
       @media only screen and (min-width: $tabletLandscape) and (max-width: $desktop) {
-        margin-top: rem(32px);
+        margin-bottom: rem(32px);
         margin-left: rem(12px);
         margin-right: rem(12px);
 
@@ -314,7 +315,7 @@ export default {
       }
 
       @media only screen and (min-width: $desktop) {
-        margin-top: rem(32px);
+        margin-bottom: rem(32px);
         margin-left: rem(12px);
         margin-right: rem(12px);
 

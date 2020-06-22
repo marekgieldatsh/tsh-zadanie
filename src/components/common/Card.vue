@@ -4,7 +4,7 @@
     <span class="card__promoBadge" v-if="isPromo">Promo</span>
     <div class="card__content">
       <h3 class="card__title">{{ title }}</h3>
-      <p class="card__text">{{ text }}</p>
+      <v-clamp class="card__text" autoresize :max-lines="3">{{ text }}</v-clamp>
       <Rating :rating="rating" @onRated="$emit('onRated')" />
       <br />
       <Button
@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import VClamp from "vue-clamp";
 import Button from "@/components/common/Button.vue";
 import Rating from "@/components/common/Rating.vue";
 
@@ -47,6 +48,7 @@ export default {
     }
   },
   components: {
+    VClamp,
     Button,
     Rating
   }
@@ -72,10 +74,6 @@ export default {
     top: rem(-170px + 16px);
     padding: rem(4px) rem(16px);
     color: $white;
-
-    @media only screen and (max-width: $tabletLandscape) {
-      left: rem(16px);
-    }
   }
 
   &__content {
@@ -83,16 +81,19 @@ export default {
   }
 
   &__title {
-    margin-top: rem(16px);
+    font-size: rem(18px);
   }
 
   &__text {
     margin-top: rem(8px);
     margin-bottom: rem(32px);
+    height: rem(64px);
+    font-size: rem(14px);
+    color: $grey4;
   }
 
   &__button {
-    margin-top: rem(32px);
+    margin-top: rem(18px);
     margin-bottom: rem(24px);
     width: 100%;
   }
