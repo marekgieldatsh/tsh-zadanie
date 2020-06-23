@@ -11,6 +11,9 @@ import Header from "@/components/Header.vue";
 export default {
   components: {
     Header
+  },
+  mounted() {
+    this.$store.dispatch("fetchProducts");
   }
 };
 </script>
