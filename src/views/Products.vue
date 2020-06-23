@@ -1,138 +1,23 @@
 <template>
   <div class="productsPage">
-    <Container>
-      <header class="productsPage__header">
-        <div class="productsPage__header__logo">
-          <Logo />
-        </div>
-
-        <div class="productsPage__header__searchFilters">
-          <TextInput class="productsPage__header__search" placeholder="Search">
-            <SearchIcon />
-          </TextInput>
-
-          <div class="productsPage__header__filters">
-            <Checkbox label="Active" @onToggle="onChangeActive()" />
-            <Checkbox label="Promo" @onToggle="onChangePromo()" />
-          </div>
-        </div>
-
-        <div class="productsPage__header__userStatus">
-          <Dropdown text="Logout" @onClick="onClickLogout()">
-            <Avatar />
-          </Dropdown>
-        </div>
-      </header>
-    </Container>
     <section class="productsPage__content">
-      <Container class="productsPage__content__cardsWrapper">
+      <clip-loader
+        class="productsPage__content__loader"
+        v-if="isLoading"
+        color="#4460f7"
+        size="64px"
+      ></clip-loader>
+      <InfoCard v-if="isEmpty" />
+      <Container v-if="!isLoading" class="productsPage__content__cardsWrapper">
         <Card
+          v-for="product in products"
+          :key="product.id"
           class="productsPage__content__card"
-          image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZKgVuTZDAyVFfBO-zPtRtIa3n-JRYcLdZ5gZvrVv79H-AbrC_&usqp=CAU"
-          title="Nike Running Shoes"
-          text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
-          :rating="2"
-          :isPromo="true"
-          @onShowDetails="onClickCard()"
-          @onRated="onRated()"
-        />
-        <Card
-          class="productsPage__content__card"
-          image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZKgVuTZDAyVFfBO-zPtRtIa3n-JRYcLdZ5gZvrVv79H-AbrC_&usqp=CAU"
-          title="Nike Running Shoes"
-          text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
-          :rating="2"
-          :isPromo="true"
-          @onShowDetails="onClickCard()"
-          @onRated="onRated()"
-        />
-        <Card
-          class="productsPage__content__card"
-          image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZKgVuTZDAyVFfBO-zPtRtIa3n-JRYcLdZ5gZvrVv79H-AbrC_&usqp=CAU"
-          title="Nike Running Shoes"
-          text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
-          :rating="2"
-          :isPromo="true"
-          @onShowDetails="onClickCard()"
-          @onRated="onRated()"
-        />
-        <Card
-          class="productsPage__content__card"
-          image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZKgVuTZDAyVFfBO-zPtRtIa3n-JRYcLdZ5gZvrVv79H-AbrC_&usqp=CAU"
-          title="Nike Running Shoes"
-          text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
-          :rating="2"
-          :isPromo="true"
-          @onShowDetails="onClickCard()"
-          @onRated="onRated()"
-        />
-        <Card
-          class="productsPage__content__card"
-          image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZKgVuTZDAyVFfBO-zPtRtIa3n-JRYcLdZ5gZvrVv79H-AbrC_&usqp=CAU"
-          title="Nike Running Shoes"
-          text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
-          :rating="2"
-          :isPromo="true"
-          @onShowDetails="onClickCard()"
-          @onRated="onRated()"
-        />
-        <Card
-          class="productsPage__content__card"
-          image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZKgVuTZDAyVFfBO-zPtRtIa3n-JRYcLdZ5gZvrVv79H-AbrC_&usqp=CAU"
-          title="Nike Running Shoes"
-          text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
-          :rating="2"
-          :isPromo="true"
-          @onShowDetails="onClickCard()"
-          @onRated="onRated()"
-        />
-        <Card
-          class="productsPage__content__card"
-          image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZKgVuTZDAyVFfBO-zPtRtIa3n-JRYcLdZ5gZvrVv79H-AbrC_&usqp=CAU"
-          title="Nike Running Shoes"
-          text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
-          :rating="2"
-          :isPromo="true"
-          @onShowDetails="onClickCard()"
-          @onRated="onRated()"
-        />
-        <Card
-          class="productsPage__content__card"
-          image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZKgVuTZDAyVFfBO-zPtRtIa3n-JRYcLdZ5gZvrVv79H-AbrC_&usqp=CAU"
-          title="Nike Running Shoes"
-          text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
-          :rating="2"
-          :isPromo="true"
-          @onShowDetails="onClickCard()"
-          @onRated="onRated()"
-        />
-        <Card
-          class="productsPage__content__card"
-          image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZKgVuTZDAyVFfBO-zPtRtIa3n-JRYcLdZ5gZvrVv79H-AbrC_&usqp=CAU"
-          title="Nike Running Shoes"
-          text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
-          :rating="2"
-          :isPromo="true"
-          @onShowDetails="onClickCard()"
-          @onRated="onRated()"
-        />
-        <Card
-          class="productsPage__content__card"
-          image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZKgVuTZDAyVFfBO-zPtRtIa3n-JRYcLdZ5gZvrVv79H-AbrC_&usqp=CAU"
-          title="Nike Running Shoes"
-          text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
-          :rating="2"
-          :isPromo="true"
-          @onShowDetails="onClickCard()"
-          @onRated="onRated()"
-        />
-        <Card
-          class="productsPage__content__card"
-          image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZKgVuTZDAyVFfBO-zPtRtIa3n-JRYcLdZ5gZvrVv79H-AbrC_&usqp=CAU"
-          title="Nike Running Shoes"
-          text="Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt"
-          :rating="2"
-          :isPromo="true"
+          :image="product.image"
+          :title="product.title"
+          :text="product.text"
+          :rating="product.rating"
+          :isPromo="product.isPromo"
           @onShowDetails="onClickCard()"
           @onRated="onRated()"
         />
@@ -142,37 +27,52 @@
 </template>
 
 <script>
-import Logo from "@/components/common/Logo.vue";
-import TextInput from "@/components/common/TextInput.vue";
-import SearchIcon from "@/components/icons/SearchIcon.vue";
-import Checkbox from "@/components/common/Checkbox.vue";
-import Dropdown from "@/components/common/Dropdown.vue";
-import Avatar from "@/components/common/Avatar.vue";
 import Container from "@/components/common/Container.vue";
+import ClipLoader from "vue-spinner/src/ClipLoader.vue";
+import InfoCard from "@/components/InfoCard.vue";
 import Card from "@/components/common/Card.vue";
 
 export default {
   name: "Home",
   components: {
-    Logo,
-    TextInput,
-    SearchIcon,
-    Checkbox,
-    Dropdown,
-    Avatar,
     Container,
+    ClipLoader,
+    InfoCard,
     Card
   },
+  data() {
+    return {
+      products: [],
+      isEmpty: false
+    };
+  },
+  mounted() {
+    this.axios
+      .get("/product?limit=10")
+      .then(result => {
+        console.debug("result", result);
+        const items = result.data.items;
+        if (items.length === 0) {
+          this.isEmpty = true;
+        } else {
+          this.products = items.map(product => ({
+            id: product.id,
+            image: product.image,
+            title: product.name,
+            text: product.description,
+            rating: product.rating,
+            isPromo: product.promo
+          }));
+        }
+      })
+      .catch(error => console.log(error.response.data.message));
+  },
+  computed: {
+    isLoading() {
+      return this.products.length === 0;
+    }
+  },
   methods: {
-    onChangeActive() {
-      console.log("On change active");
-    },
-    onChangePromo() {
-      console.log("On change active");
-    },
-    onClickLogout() {
-      console.log("On click logout");
-    },
     onClickCard() {
       console.log("On click card");
     },
@@ -185,91 +85,28 @@ export default {
 
 <style lang="scss" scoped>
 .productsPage {
-  &__header {
-    padding-top: rem(52px);
-    padding-bottom: rem(32px);
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 50% 50%);
-
-    @media only screen and (min-width: $tabletLandscape) {
-      padding-top: rem(48px);
-      padding-bottom: rem(48px);
-      grid-template-columns: repeat(auto-fill, 14% 79% 7%);
-    }
-
-    &__logo {
-      display: inline-flex;
-      align-items: center;
-      justify-content: flex-start;
-
-      @media only screen and (max-width: $tabletLandscape) {
-        order: 1;
-      }
-    }
-
-    &__searchFilters {
-      display: inline-flex;
-      align-items: center;
-      justify-content: space-around;
-
-      @media only screen and (max-width: $tabletLandscape) {
-        order: 3;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        grid-column-start: 1;
-        grid-column-end: 3;
-      }
-    }
-
-    &__search {
-      width: 100%;
-      margin-right: rem(24px);
-
-      @media only screen and (min-width: $tabletLandscape) {
-        max-width: rem(392px);
-      }
-
-      @media only screen and (max-width: $tabletLandscape) {
-        margin-top: rem(24px);
-      }
-    }
-
-    &__filters {
-      display: inline-flex;
-      align-items: center;
-      @media only screen and (max-width: $tabletLandscape) {
-        margin-top: rem(24px);
-      }
-
-      * {
-        margin-right: rem(31px);
-      }
-    }
-
-    &__userStatus {
-      display: inline-flex;
-      align-items: center;
-      justify-content: flex-end;
-
-      @media only screen and (max-width: $tabletLandscape) {
-        order: 2;
-      }
-    }
-  }
-
   &__content {
     background-color: $background;
     padding-top: rem(24px);
+    min-height: calc(100vh - 202px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    &__loader {
+      position: fixed;
+      top: calc(50vh - 32px);
+    }
 
     @media only screen and (min-width: $mobileLandscape) {
       padding-top: rem(56px);
     }
 
     &__cardsWrapper {
+      display: grid;
+
       @media only screen and (min-width: $mobileLandscape) {
-        display: grid;
         grid-template-columns: repeat(auto-fill, 50% 50%);
       }
 
@@ -284,6 +121,8 @@ export default {
 
     &__card {
       margin-bottom: rem(24px);
+      max-width: rem(288px);
+      justify-self: center;
 
       @media only screen and (min-width: $mobileLandscape) and (max-width: $tabletLandscape) {
         margin-bottom: rem(32px);

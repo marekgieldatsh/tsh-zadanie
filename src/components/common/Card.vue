@@ -2,7 +2,12 @@
   <section class="card">
     <img class="card__image" :src="image" alt />
     <span class="card__promoBadge" v-if="isPromo">Promo</span>
-    <div class="card__content">
+    <div
+      :class="{
+        card__content: true,
+        'card__content--withPromo': isPromo
+      }"
+    >
       <h3 class="card__title">{{ title }}</h3>
       <v-clamp class="card__text" autoresize :max-lines="3">{{ text }}</v-clamp>
       <Rating :rating="rating" @onRated="$emit('onRated')" />
@@ -80,8 +85,15 @@ export default {
     padding: 0 rem(16px);
   }
 
+  &__content--withPromo {
+    margin-top: rem(-24px);
+  }
+
   &__title {
     font-size: rem(18px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__text {
