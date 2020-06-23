@@ -11,8 +11,16 @@
         </TextInput>
 
         <div class="productsPage__header__filters">
-          <Checkbox label="Active" @onToggle="onChangeActive()" />
-          <Checkbox label="Promo" @onToggle="onChangePromo()" />
+          <Checkbox
+            label="Active"
+            @onToggle="onChangeActive()"
+            :checked="$store.state.isActive"
+          />
+          <Checkbox
+            label="Promo"
+            @onToggle="onChangePromo()"
+            :checked="$store.state.isPromo"
+          />
         </div>
       </div>
 
@@ -47,10 +55,10 @@ export default {
   },
   methods: {
     onChangeActive() {
-      console.log("On change active");
+      this.$store.dispatch("toggleActiveFilter");
     },
     onChangePromo() {
-      console.log("On change active");
+      this.$store.dispatch("togglePromoFilter");
     },
     onClickLogout() {
       console.log("On click logout");

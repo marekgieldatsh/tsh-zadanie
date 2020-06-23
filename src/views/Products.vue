@@ -3,14 +3,17 @@
     <section class="productsPage__content">
       <clip-loader
         class="productsPage__content__loader"
-        v-if="isLoading"
+        v-if="$store.getters.isLoading"
         color="#4460f7"
         size="64px"
       ></clip-loader>
       <InfoCard v-if="isEmpty" />
-      <Container v-if="!isLoading" class="productsPage__content__cardsWrapper">
+      <Container
+        v-if="!$store.getters.isLoading"
+        class="productsPage__content__cardsWrapper"
+      >
         <Card
-          v-for="product in products"
+          v-for="product in $store.state.products"
           :key="product.id"
           class="productsPage__content__card"
           :image="product.image"
@@ -45,27 +48,6 @@ export default {
       products: [],
       isEmpty: false
     };
-  },
-  mounted() {
-    this.axios
-      .get("/product?limit=10")
-      .then(result => {
-        console.debug("result", result);
-        const items = result.data.items;
-        if (items.length === 0) {
-          this.isEmpty = true;
-        } else {
-          this.products = items.map(product => ({
-            id: product.id,
-            image: product.image,
-            title: product.name,
-            text: product.description,
-            rating: product.rating,
-            isPromo: product.promo
-          }));
-        }
-      })
-      .catch(error => console.log(error.response.data.message));
   },
   computed: {
     isLoading() {

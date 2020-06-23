@@ -5,6 +5,7 @@
       type="checkbox"
       :id="id"
       v-on:change="onCheckboxToggle"
+      :checked="checked"
     />
     <label class="checkbox-container__label" :for="id">{{ label }}</label>
   </span>
@@ -21,6 +22,10 @@ export default {
     },
     onToggle: {
       type: Event
+    },
+    checked: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
