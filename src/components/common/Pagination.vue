@@ -5,7 +5,7 @@
         'pagination-container__item': true,
         'pagination-container__item--disabled': currentPage === 1
       }"
-      v-on:click="$emit('onPageSelected', 'PREVIOUS')"
+      v-on:click="$emit('onPageSelected', 1)"
     >
       First
     </li>
@@ -22,9 +22,12 @@
       }"
       v-for="pageNumber in numberOfPages"
       :key="pageNumber"
-      v-on:click="$emit('onPageSelected', pageNumber)"
     >
-      <span v-if="isPaginationItemVisible(pageNumber)">{{ pageNumber }}</span>
+      <span
+        v-if="isPaginationItemVisible(pageNumber)"
+        v-on:click="$emit('onPageSelected', pageNumber)"
+        >{{ pageNumber }}</span
+      >
       <span v-if="!isPaginationItemVisible(pageNumber)">...</span>
     </li>
     <li
@@ -32,7 +35,7 @@
         'pagination-container__item': true,
         'pagination-container__item--disabled': currentPage === numberOfPages
       }"
-      v-on:click="$emit('onPageSelected', 'NEXT')"
+      v-on:click="$emit('onPageSelected', numberOfPages)"
     >
       Last
     </li>
@@ -48,7 +51,7 @@ export default {
     },
     numberOfPages: {
       type: Number,
-      default: 0
+      default: 1
     },
     onPageSelected: {
       type: Event

@@ -3,11 +3,11 @@
     <section class="productsPage__content">
       <clip-loader
         class="productsPage__content__loader"
-        v-if="$store.getters.isLoading"
+        v-if="$store.state.isLoading"
         color="#4460f7"
         size="64px"
       ></clip-loader>
-      <InfoCard v-if="isEmpty" />
+      <InfoCard v-if="$store.getters.isEmpty" />
       <Container
         v-if="!$store.getters.isLoading"
         class="productsPage__content__cardsWrapper"
@@ -25,6 +25,12 @@
           @onRated="onRated()"
         />
       </Container>
+      <Pagination
+        class="productsPage__content__pagination"
+        :currentPage="$store.state.currentPageNumber"
+        :numberOfPages="$store.state.numberOfPages"
+        @onPageSelected="onClickPagination"
+      />
     </section>
   </div>
 </template>
@@ -34,6 +40,7 @@ import Container from "@/components/common/Container.vue";
 import ClipLoader from "vue-spinner/src/ClipLoader.vue";
 import InfoCard from "@/components/InfoCard.vue";
 import Card from "@/components/common/Card.vue";
+import Pagination from "@/components/common/Pagination";
 
 export default {
   name: "Home",
@@ -41,13 +48,8 @@ export default {
     Container,
     ClipLoader,
     InfoCard,
-    Card
-  },
-  data() {
-    return {
-      products: [],
-      isEmpty: false
-    };
+    Card,
+    Pagination
   },
   computed: {
     isLoading() {
@@ -60,6 +62,10 @@ export default {
     },
     onRated() {
       console.log("On rated");
+    },
+    onClickPagination(data) {
+      console.log(data);
+      this.$store.dispatch("setCurrentPage", data)
     }
   }
 };
@@ -103,7 +109,7 @@ export default {
 
     &__card {
       margin-bottom: rem(24px);
-      max-width: rem(288px);
+      width: rem(288px);
       justify-self: center;
 
       @media only screen and (min-width: $mobileLandscape) and (max-width: $tabletLandscape) {
@@ -149,6 +155,11 @@ export default {
           margin-right: 0;
         }
       }
+    }
+
+    &__pagination {
+      margin-top: rem(24px);
+      margin-bottom: rem(56px);
     }
   }
 }
