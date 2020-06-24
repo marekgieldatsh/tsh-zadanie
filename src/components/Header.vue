@@ -74,7 +74,7 @@ export default {
       console.log("On click logout");
     },
     onClickLogin() {
-      console.log("On click login")
+      console.log("On click login");
     }
   }
 };

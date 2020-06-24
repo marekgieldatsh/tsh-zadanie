@@ -10,7 +10,7 @@ export default {
     image: {
       type: String,
       default: "user.png"
-    } 
+    }
   }
 };
 </script>
