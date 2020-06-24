@@ -26,6 +26,7 @@
         />
       </Container>
       <Pagination
+        v-if="!$store.getters.isEmpty"
         class="productsPage__content__pagination"
         :currentPage="$store.state.currentPageNumber"
         :numberOfPages="$store.state.numberOfPages"
