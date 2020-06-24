@@ -29,7 +29,8 @@
       </div>
 
       <div class="productsPage__header__userStatus">
-        <Dropdown text="Logout" @onClick="onClickLogout()">
+        <Button v-if="true" title="Login" outlined @onCLick="onClickLogin" />
+        <Dropdown v-if="false" text="Logout" @onClick="onClickLogout()">
           <Avatar />
         </Dropdown>
       </div>
@@ -43,6 +44,7 @@ import SearchInput from "@/components/common/SearchInput.vue";
 import SearchIcon from "@/components/icons/SearchIcon.vue";
 import Checkbox from "@/components/common/Checkbox.vue";
 import Dropdown from "@/components/common/Dropdown.vue";
+import Button from "@/components/common/Button.vue";
 import Avatar from "@/components/common/Avatar.vue";
 import Container from "@/components/common/Container.vue";
 
@@ -54,6 +56,7 @@ export default {
     SearchIcon,
     Checkbox,
     Dropdown,
+    Button,
     Avatar,
     Container
   },
@@ -69,6 +72,9 @@ export default {
     },
     onClickLogout() {
       console.log("On click logout");
+    },
+    onClickLogin() {
+      console.log("On click login")
     }
   }
 };

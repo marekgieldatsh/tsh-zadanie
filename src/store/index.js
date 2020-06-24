@@ -56,7 +56,7 @@ export default new Vuex.Store({
 
       axios
         .get(
-          `/product?limit=10${urlPartActive}${urlPartPromo}${urlPartSearch}${urlPartPage}`
+          `/product?limit=12${urlPartActive}${urlPartPromo}${urlPartSearch}${urlPartPage}`
         )
         .then(result => {
           state.numberOfPages = result.data.pageCount;

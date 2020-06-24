@@ -112,6 +112,7 @@ export default {
   &__item--disabled {
     color: $grey4;
     cursor: not-allowed;
+    pointer-events: none;
   }
 
   &__item--hidden {

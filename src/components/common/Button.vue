@@ -40,7 +40,7 @@ export default {
   color: $white;
   font-size: rem(14px);
   border: none;
-  padding: 11px;
+  padding: rem(11px) rem(24px);
   border-radius: 4px;
   border: 1px solid $primary;
 
