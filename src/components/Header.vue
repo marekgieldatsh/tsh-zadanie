@@ -6,9 +6,13 @@
       </div>
 
       <div class="productsPage__header__searchFilters">
-        <TextInput class="productsPage__header__search" placeholder="Search">
+        <SearchInput
+          class="productsPage__header__search"
+          placeholder="Search"
+          @onChange="onSearchChange"
+        >
           <SearchIcon />
-        </TextInput>
+        </SearchInput>
 
         <div class="productsPage__header__filters">
           <Checkbox
@@ -35,7 +39,7 @@
 
 <script>
 import Logo from "@/components/common/Logo.vue";
-import TextInput from "@/components/common/TextInput.vue";
+import SearchInput from "@/components/common/SearchInput.vue";
 import SearchIcon from "@/components/icons/SearchIcon.vue";
 import Checkbox from "@/components/common/Checkbox.vue";
 import Dropdown from "@/components/common/Dropdown.vue";
@@ -46,7 +50,7 @@ export default {
   name: "Header",
   components: {
     Logo,
-    TextInput,
+    SearchInput,
     SearchIcon,
     Checkbox,
     Dropdown,
@@ -54,6 +58,9 @@ export default {
     Container
   },
   methods: {
+    onSearchChange(value) {
+      this.$store.dispatch("onPhraseSearch", value);
+    },
     onChangeActive() {
       this.$store.dispatch("toggleActiveFilter");
     },

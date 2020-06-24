@@ -1,8 +1,8 @@
 import { mount } from "@vue/test-utils";
-import TextInput from "@/components/common/TextInput.vue";
+import SearchInput from "@/components/common/SearchInput.vue";
 
-describe("TextInput.vue", () => {
-  const wrapper = mount(TextInput, {
+describe("SearchInput.vue", () => {
+  const wrapper = mount(SearchInput, {
     propsData: {
       placeholder: "My_placeholder"
     }

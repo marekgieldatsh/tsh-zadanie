@@ -24,8 +24,12 @@ export default {
   align-items: center;
   justify-content: space-around;
   background-color: $white;
-  padding: rem(118px) rem(197px);
   border-radius: 8px;
+  padding: rem(118px) rem(60px);
+
+  @media only screen and (min-width: $desktop) {
+    padding: rem(118px) rem(197px);
+  }
 
   &__title {
     margin-top: rem(22px);
