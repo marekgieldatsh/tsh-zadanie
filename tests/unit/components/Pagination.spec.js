@@ -25,6 +25,6 @@ describe("Pagination.vue", () => {
   it("emits an event after a click", async () => {
     const item = wrapper.find(".pagination-container__item");
     await item.trigger("click");
-    expect(wrapper.emitted().onPageSelected[0][0]).toEqual("PREVIOUS");
+    expect(wrapper.emitted().onPageSelected[0][0]).toEqual(1);
   });
 });
