@@ -66,7 +66,7 @@ export default {
     },
     onClickPagination(data) {
       console.log(data);
-      this.$store.dispatch("setCurrentPage", data)
+      this.$store.dispatch("setCurrentPage", data);
     }
   }
 };
