@@ -1,5 +1,5 @@
 import Vuex from "vuex";
-import { mount, createLocalVue, shallowMount } from "@vue/test-utils";
+import { createLocalVue, shallowMount } from "@vue/test-utils";
 import SearchInput from "@/components/common/SearchInput.vue";
 
 const localVue = createLocalVue();
