@@ -1,6 +1,11 @@
 <template>
   <section class="card">
-    <img class="card__image" :src="image" alt />
+    <img
+      class="card__image"
+      :src="imageError ? require('../../assets/image_placeholder.png') : image"
+      alt="Image"
+      @error="onErrorImage"
+    />
     <span class="card__promoBadge" v-if="isPromo">Promo</span>
     <div
       :class="{
@@ -38,7 +43,7 @@ export default {
     },
     image: {
       type: String,
-      default: ""
+      default: require("../../assets/image_placeholder.png")
     },
     rating: {
       type: Number,
@@ -56,6 +61,17 @@ export default {
     VClamp,
     Button,
     Rating
+  },
+  data() {
+    return {
+      imageError: false
+    };
+  },
+  methods: {
+    onErrorImage() {
+      this.imageError = true;
+      console.log('error')
+    }
   }
 };
 </script>

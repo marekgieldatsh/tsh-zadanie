@@ -2,9 +2,9 @@
   <div class="textInputContainer">
     <input
       class="textInputContainer__input"
-      type="text"
+      type="search"
       :placeholder="placeholder"
-      v-on:change="$emit('onChange')"
+      v-model="searchModel"
     />
     <span class="textInputContainer__icon">
       <slot></slot>
@@ -18,6 +18,24 @@ export default {
     placeholder: {
       type: String,
       default: "Input text here"
+    },
+    model: {
+      type: Event
+    }
+  },
+  computed: {
+    searchModel: {
+      get() {
+        return this.$store.state.phrase;
+      },
+      set(value) {
+        this.$store.dispatch("onPhraseSearch", value);
+      }
+    }
+  },
+  methods: {
+    onInputEvent(e) {
+      this.$emit("onChange", e.target.value);
     }
   }
 };
@@ -38,6 +56,13 @@ export default {
     width: 100%;
     font-size: rem(14px);
     padding-left: rem(16px);
+  }
+
+  &__input::-webkit-search-cancel-button {
+    position: relative;
+    right: 20px;
+    height: 20px;
+    width: 20px;
   }
 
   &__icon {

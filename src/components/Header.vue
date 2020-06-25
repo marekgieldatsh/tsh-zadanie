@@ -6,18 +6,31 @@
       </div>
 
       <div class="productsPage__header__searchFilters">
-        <TextInput class="productsPage__header__search" placeholder="Search">
+        <SearchInput
+          class="productsPage__header__search"
+          placeholder="Search"
+          @onChange="onSearchChange"
+        >
           <SearchIcon />
-        </TextInput>
+        </SearchInput>
 
         <div class="productsPage__header__filters">
-          <Checkbox label="Active" @onToggle="onChangeActive()" />
-          <Checkbox label="Promo" @onToggle="onChangePromo()" />
+          <Checkbox
+            label="Active"
+            @onToggle="onChangeActive()"
+            :checked="$store.state.isActive"
+          />
+          <Checkbox
+            label="Promo"
+            @onToggle="onChangePromo()"
+            :checked="$store.state.isPromo"
+          />
         </div>
       </div>
 
       <div class="productsPage__header__userStatus">
-        <Dropdown text="Logout" @onClick="onClickLogout()">
+        <Button v-if="true" title="Login" outlined @onCLick="onClickLogin" />
+        <Dropdown v-if="false" text="Logout" @onClick="onClickLogout()">
           <Avatar />
         </Dropdown>
       </div>
@@ -27,10 +40,11 @@
 
 <script>
 import Logo from "@/components/common/Logo.vue";
-import TextInput from "@/components/common/TextInput.vue";
+import SearchInput from "@/components/common/SearchInput.vue";
 import SearchIcon from "@/components/icons/SearchIcon.vue";
 import Checkbox from "@/components/common/Checkbox.vue";
 import Dropdown from "@/components/common/Dropdown.vue";
+import Button from "@/components/common/Button.vue";
 import Avatar from "@/components/common/Avatar.vue";
 import Container from "@/components/common/Container.vue";
 
@@ -38,22 +52,29 @@ export default {
   name: "Header",
   components: {
     Logo,
-    TextInput,
+    SearchInput,
     SearchIcon,
     Checkbox,
     Dropdown,
+    Button,
     Avatar,
     Container
   },
   methods: {
+    onSearchChange(value) {
+      this.$store.dispatch("onPhraseSearch", value);
+    },
     onChangeActive() {
-      console.log("On change active");
+      this.$store.dispatch("toggleActiveFilter");
     },
     onChangePromo() {
-      console.log("On change active");
+      this.$store.dispatch("togglePromoFilter");
     },
     onClickLogout() {
       console.log("On click logout");
+    },
+    onClickLogin() {
+      console.log("On click login");
     }
   }
 };
