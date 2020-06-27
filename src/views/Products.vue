@@ -21,7 +21,9 @@
           :text="product.text"
           :rating="product.rating"
           :isPromo="product.isPromo"
-          @onShowDetails="onClickCard()"
+          @onShowDetails="
+            onClickCard(product.image, product.title, product.text)
+          "
           @onRated="onRated()"
         />
       </Container>
@@ -58,8 +60,9 @@ export default {
     }
   },
   methods: {
-    onClickCard() {
+    onClickCard(image, title, text) {
       console.log("On click card");
+      this.$store.commit("setModalOn", { image, title, text });
     },
     onRated() {
       console.log("On rated");

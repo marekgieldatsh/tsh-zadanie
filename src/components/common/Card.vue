@@ -70,7 +70,6 @@ export default {
   methods: {
     onErrorImage() {
       this.imageError = true;
-      console.log('error')
     }
   }
 };

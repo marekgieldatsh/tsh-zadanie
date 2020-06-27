@@ -14,7 +14,12 @@ export default new Vuex.Store({
     searchPhrase: "",
     isLoading: true,
     numberOfPages: 1,
-    currentPageNumber: 1
+    currentPageNumber: 1,
+    modal: {
+      image: "",
+      title: "",
+      text: ""
+    }
   },
   mutations,
   getters,
