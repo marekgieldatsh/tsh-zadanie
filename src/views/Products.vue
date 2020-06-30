@@ -1,12 +1,12 @@
 <template>
   <div class="productsPage">
     <section class="productsPage__content">
-      <clip-loader
+      <ClipLoader
         class="productsPage__content__loader"
         v-if="$store.state.isLoading"
         color="#4460f7"
         size="64px"
-      ></clip-loader>
+      />
       <InfoCard v-if="$store.getters.isEmpty" />
       <Container
         v-if="!$store.getters.isLoading"
