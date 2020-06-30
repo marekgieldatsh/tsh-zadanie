@@ -14,9 +14,6 @@ export default {
   components: {
     Header,
     Modal
-  },
-  mounted() {
-    this.$store.dispatch("fetchProducts");
   }
 };
 </script>

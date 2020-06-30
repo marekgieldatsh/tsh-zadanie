@@ -1,35 +1,53 @@
 import axios from "axios";
+import router from "../router";
+import queryString from "query-string";
 
 export default {
   onPhraseSearch({ state, dispatch }, phrase) {
-    state.searchPhrase = phrase;
+    state.query.search = phrase;
     dispatch("fetchProducts");
   },
   togglePromoFilter({ state, dispatch }) {
-    state.isPromo = !state.isPromo;
+    state.query.promo = !state.query.promo;
     dispatch("fetchProducts");
   },
   toggleActiveFilter({ state, dispatch }) {
-    state.isActive = !state.isActive;
+    state.query.active = !state.query.active;
     dispatch("fetchProducts");
   },
   setCurrentPage({ state, dispatch }, currentPageNumber) {
-    state.currentPageNumber = currentPageNumber;
+    state.query.page = currentPageNumber;
+    dispatch("fetchProducts");
+  },
+  setFiltersFromQuery({ state, dispatch }, query) {
+    query.page = Number(query.page) || 1;
+    query.promo = query.promo === "true";
+    query.active = query.active === "true";
+    state.query = query;
+    console.debug("QUERY", state.query);
     dispatch("fetchProducts");
   },
   fetchProducts({ state, commit }) {
     state.isLoading = true;
     state.products = [];
-    const urlPartActive = state.isActive === true ? "&active=true" : "";
-    const urlPartPromo = state.isPromo === true ? "&promo=true" : "";
-    const urlPartSearch = state.searchPhrase.length
-      ? `&search=${state.searchPhrase}`
-      : "";
-    const urlPartPage = `&page=${state.currentPageNumber}`;
+    router.push(
+      {
+        query: {
+          active: state.query.active,
+          promo: state.query.promo,
+          search: state.query.search,
+          page: state.query.page
+        }
+      },
+      () => {}
+    );
 
     axios
       .get(
-        `/product?limit=12${urlPartActive}${urlPartPromo}${urlPartSearch}${urlPartPage}`
+        `/product?limit=12&${queryString.stringify(state.query, {
+          skipNull: true,
+          skipEmptyString: true
+        })}`
       )
       .then(result => {
         state.numberOfPages = result.data.pageCount;
