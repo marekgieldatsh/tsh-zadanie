@@ -9,12 +9,14 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     products: [],
-    isPromo: false,
-    isActive: false,
-    searchPhrase: "",
     isLoading: true,
     numberOfPages: 1,
-    currentPageNumber: 1,
+    query: {
+      active: null,
+      promo: null,
+      serach: "",
+      page: 1
+    },
     modal: {
       image: "",
       title: "",

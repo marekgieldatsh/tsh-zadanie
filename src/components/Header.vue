@@ -18,12 +18,12 @@
           <Checkbox
             label="Active"
             @onToggle="onChangeActive()"
-            :checked="$store.state.isActive"
+            :checked="$store.state.query.active"
           />
           <Checkbox
             label="Promo"
             @onToggle="onChangePromo()"
-            :checked="$store.state.isPromo"
+            :checked="$store.state.query.promo"
           />
         </div>
       </div>

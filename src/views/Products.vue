@@ -30,7 +30,7 @@
       <Pagination
         v-if="!$store.getters.isEmpty"
         class="productsPage__content__pagination"
-        :currentPage="$store.state.currentPageNumber"
+        :currentPage="$store.state.query.page"
         :numberOfPages="$store.state.numberOfPages"
         @onPageSelected="onClickPagination"
       />
@@ -53,6 +53,9 @@ export default {
     InfoCard,
     Card,
     Pagination
+  },
+  mounted() {
+    this.$store.dispatch("setFiltersFromQuery", this.$route.query);
   },
   computed: {
     isLoading() {
