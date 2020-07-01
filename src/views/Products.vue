@@ -1,44 +1,48 @@
 <template>
-  <div class="productsPage">
-    <section class="productsPage__content">
-      <ClipLoader
-        class="productsPage__content__loader"
-        v-if="$store.state.isLoading"
-        color="#4460f7"
-        size="64px"
-      />
-      <InfoCard v-if="$store.getters.isEmpty" />
-      <Container
-        v-if="!$store.getters.isLoading"
-        class="productsPage__content__cardsWrapper"
-      >
-        <Card
-          v-for="product in $store.state.products"
-          :key="product.id"
-          class="productsPage__content__card"
-          :image="product.image"
-          :title="product.title"
-          :text="product.text"
-          :rating="product.rating"
-          :isPromo="product.isPromo"
-          @onShowDetails="
-            onClickCard(product.image, product.title, product.text)
-          "
-          @onRated="onRated()"
+  <div>
+    <Header />
+    <div class="productsPage">
+      <section class="productsPage__content">
+        <ClipLoader
+          class="productsPage__content__loader"
+          v-if="$store.state.isLoading"
+          color="#4460f7"
+          size="64px"
         />
-      </Container>
-      <Pagination
-        v-if="!$store.getters.isEmpty"
-        class="productsPage__content__pagination"
-        :currentPage="$store.state.query.page"
-        :numberOfPages="$store.state.numberOfPages"
-        @onPageSelected="onClickPagination"
-      />
-    </section>
+        <InfoCard v-if="$store.getters.isEmpty" />
+        <Container
+          v-if="!$store.getters.isLoading"
+          class="productsPage__content__cardsWrapper"
+        >
+          <Card
+            v-for="product in $store.state.products"
+            :key="product.id"
+            class="productsPage__content__card"
+            :image="product.image"
+            :title="product.title"
+            :text="product.text"
+            :rating="product.rating"
+            :isPromo="product.isPromo"
+            @onShowDetails="
+              onClickCard(product.image, product.title, product.text)
+            "
+            @onRated="onRated()"
+          />
+        </Container>
+        <Pagination
+          v-if="!$store.getters.isEmpty"
+          class="productsPage__content__pagination"
+          :currentPage="$store.state.query.page"
+          :numberOfPages="$store.state.numberOfPages"
+          @onPageSelected="onClickPagination"
+        />
+      </section>
+    </div>
   </div>
 </template>
 
 <script>
+import Header from "@/components/Header/Header.vue";
 import Container from "@/components/common/Container.vue";
 import ClipLoader from "vue-spinner/src/ClipLoader.vue";
 import InfoCard from "@/components/InfoCard.vue";
@@ -48,6 +52,7 @@ import Pagination from "@/components/common/Pagination";
 export default {
   name: "Home",
   components: {
+    Header,
     Container,
     ClipLoader,
     InfoCard,

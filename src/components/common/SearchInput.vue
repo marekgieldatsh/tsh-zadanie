@@ -4,7 +4,7 @@
       class="textInputContainer__input"
       type="search"
       :placeholder="placeholder"
-      v-model="searchModel"
+      v-model="inputModel"
     />
     <span class="textInputContainer__icon">
       <slot></slot>
@@ -17,25 +17,24 @@ export default {
   props: {
     placeholder: {
       type: String,
-      default: "Input text here"
+      default: "SearchInput text here"
     },
-    model: {
+    value: {
+      type: String,
+      default: ""
+    },
+    onChange: {
       type: Event
     }
   },
   computed: {
-    searchModel: {
+    inputModel: {
       get() {
-        return this.$store.state.phrase;
+        return this.value;
       },
       set(value) {
-        this.$store.dispatch("onPhraseSearch", value);
+        this.$emit("onChange", value);
       }
-    }
-  },
-  methods: {
-    onInputEvent(e) {
-      this.$emit("onChange", e.target.value);
     }
   }
 };
