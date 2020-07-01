@@ -1,70 +1,77 @@
 <template>
   <div class="loginPage">
-    <Container class="loginPage__container">
-      <div class="loginPage__container__imageWrapper">
-        <img :src="require('../assets/login_image.png')" alt="Image" />
+    <div class="loginPage__imageWrapper">
+      <img :src="require('../assets/login_image.png')" alt="Image" />
+    </div>
+    <div class="loginPage__content">
+      <Logo />
+      <div class="loginPage__content__title">
+        <h1>Login</h1>
       </div>
-      <div class="loginPage__container__content">
-        <Header />
-        <div class="loginPage__container__title">
-          <h1>Login</h1>
-        </div>
-        <span class="loginPage__container__label">Username</span>
-        <SearchInput
-          class="loginPage__container__input"
-          placeholder="Enter username"
-        />
-        <span class="loginPage__container__label">Password</span>
-        <SearchInput
-          class="loginPage__container__input"
-          placeholder="Enter password"
-        />
-        <Button class="loginPage__container__button" title="Log in" />
-        <a class="loginPage__container__forgotPassword">Forgot password?</a>
-      </div>
-    </Container>
+      <span class="loginPage__content__label">Username</span>
+      <SearchInput
+        class="loginPage__content__input"
+        placeholder="Enter username"
+      />
+      <span class="loginPage__content__label">Password</span>
+      <SearchInput
+        class="loginPage__content__input"
+        placeholder="Enter password"
+      />
+      <Button class="loginPage__content__button" title="Log in" />
+      <a class="loginPage__content__forgotPassword">Forgot password?</a>
+    </div>
   </div>
 </template>
 
 <script>
-import Container from "@/components/common/Container.vue";
 import SearchInput from "@/components/common/SearchInput.vue";
 import Button from "@/components/common/Button.vue";
+import Logo from "@/components/common/Logo.vue";
 
 export default {
   components: {
-    Container,
     SearchInput,
-    Button
+    Button,
+    Logo
   }
 };
 </script>
 
 <style lang="scss" scoped>
 .loginPage {
-  &__container {
-    padding-top: rem(55px);
-    display: flex;
+  display: flex;
+  flex-direction: row;
 
-    &__imageWrapper {
-      display: none;
+  &__imageWrapper {
+    display: none;
+    max-width: 42%;
 
-      img {
-        max-width: 42vw;
-      }
-
-      @media only screen and (min-width: $tablet) {
-        display: block;
-      }
+    img {
+      max-width: 100%;
+      object-fit: cover;
+      height: 100vh;
     }
 
-    &__content {
-      display: flex;
-      flex-direction: column;
+    @media only screen and (min-width: $tablet) {
+      display: block;
+    }
+  }
+
+  &__content {
+    padding: rem(40px) rem(24px);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    @media only screen and (min-width: $tablet) {
+      padding: rem(52px) rem(128px);
+      max-width: rem(496px);
     }
 
     &__title {
-      padding-bottom: rem(7px);
+      margin-top: rem(103px);
+      margin-bottom: rem(7px);
       font-size: rem(30px);
     }
 
