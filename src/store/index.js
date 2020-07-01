@@ -9,7 +9,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     products: [],
-    isLoading: true,
+    isProductsLoading: true,
     numberOfPages: 1,
     query: {
       active: null,
@@ -21,7 +21,8 @@ export default new Vuex.Store({
       image: "",
       title: "",
       text: ""
-    }
+    },
+    isLoginLoading: false
   },
   mutations,
   getters,

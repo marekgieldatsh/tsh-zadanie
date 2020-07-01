@@ -5,7 +5,7 @@
       <section class="productsPage__content">
         <ClipLoader
           class="productsPage__content__loader"
-          v-if="$store.state.isLoading"
+          v-if="$store.state.isProductsLoading"
           color="#4460f7"
           size="64px"
         />

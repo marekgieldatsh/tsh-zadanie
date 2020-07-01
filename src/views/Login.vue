@@ -12,14 +12,30 @@
       <SearchInput
         class="loginPage__content__input"
         placeholder="Enter username"
+        :value="login"
+        @onChange="onChangeLogin"
+        :disabled="$store.state.isLoginLoading"
       />
       <span class="loginPage__content__label">Password</span>
       <SearchInput
         class="loginPage__content__input"
         placeholder="Enter password"
+        :value="password"
+        @onChange="onChangePassword"
+        type="password"
+        :disabled="$store.state.isLoginLoading"
       />
-      <Button class="loginPage__content__button" title="Log in" />
-      <a class="loginPage__content__forgotPassword">Forgot password?</a>
+      <Button
+        class="loginPage__content__button"
+        title="Log in"
+        @onClick="onClickLogin()"
+        :disabled="isButtonDisabled"
+      />
+      <router-link
+        class="loginPage__content__forgotPassword"
+        to="/passwordRecovery"
+        >Forgot password?</router-link
+      >
     </div>
   </div>
 </template>
@@ -34,6 +50,35 @@ export default {
     SearchInput,
     Button,
     Logo
+  },
+  data() {
+    return {
+      login: "user101",
+      password: "P@ssword"
+    };
+  },
+  computed: {
+    isButtonDisabled() {
+      return (
+        this.$store.state.isLoginLoading ||
+        this.login.length === 0 ||
+        this.password.length === 0
+      );
+    }
+  },
+  methods: {
+    onClickLogin() {
+      this.$store.dispatch("login", {
+        login: this.login,
+        password: this.password
+      });
+    },
+    onChangeLogin(value) {
+      this.login = value;
+    },
+    onChangePassword(value) {
+      this.password = value;
+    }
   }
 };
 </script>
@@ -89,6 +134,7 @@ export default {
     }
 
     &__forgotPassword {
+      @include clickable;
       margin-top: rem(16px);
       color: $grey4;
       font-size: rem(14px);

@@ -1,7 +1,12 @@
 <template>
   <div class="userStatus">
-    <Button v-if="true" title="Login" outlined @onClick="onClickLogin()" />
-    <Dropdown v-if="false" text="Logout" @onClick="onClickLogout()">
+    <Button
+      v-if="!isUserLoggedIn"
+      title="Login"
+      outlined
+      @onClick="onClickLogin()"
+    />
+    <Dropdown v-if="isUserLoggedIn" text="Logout" @onClick="onClickLogout()">
       <Avatar />
     </Dropdown>
   </div>
@@ -19,9 +24,19 @@ export default {
     Button,
     Avatar
   },
+  data() {
+    return {
+      isUserLoggedIn: false
+    };
+  },
+  mounted() {
+    this.isUserLoggedIn = localStorage.getItem("token");
+  },
   methods: {
     onClickLogout() {
-      console.log("On click logout");
+      this.$store.dispatch("logout");
+      this.$store.dispatch("fetchProducts");
+      this.isUserLoggedIn = false;
     },
     onClickLogin() {
       this.$router.push("login", () => {});

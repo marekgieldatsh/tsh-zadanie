@@ -2,11 +2,12 @@
   <div class="textInputContainer">
     <input
       class="textInputContainer__input"
-      type="search"
+      :type="type"
       :placeholder="placeholder"
       v-model="inputModel"
+      :disabled="disabled"
     />
-    <span class="textInputContainer__icon">
+    <span v-if="hasIcon" class="textInputContainer__icon">
       <slot></slot>
     </span>
   </div>
@@ -17,7 +18,7 @@ export default {
   props: {
     placeholder: {
       type: String,
-      default: "SearchInput text here"
+      default: "Place some text here"
     },
     value: {
       type: String,
@@ -25,6 +26,14 @@ export default {
     },
     onChange: {
       type: Event
+    },
+    type: {
+      type: String,
+      default: "text"
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -35,6 +44,9 @@ export default {
       set(value) {
         this.$emit("onChange", value);
       }
+    },
+    hasIcon() {
+      return this.$slots.default && this.$slots.default.length;
     }
   }
 };

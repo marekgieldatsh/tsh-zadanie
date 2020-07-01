@@ -24,11 +24,10 @@ export default {
     query.promo = query.promo === "true";
     query.active = query.active === "true";
     state.query = query;
-    console.debug("QUERY", state.query);
     dispatch("fetchProducts");
   },
   fetchProducts({ state, commit }) {
-    state.isLoading = true;
+    state.isProductsLoading = true;
     state.products = [];
     router.push(
       {
@@ -65,6 +64,25 @@ export default {
         commit("setProducts", products);
       })
       .catch(error => console.error(error.response.data.message))
-      .finally(() => (state.isLoading = false));
+      .finally(() => (state.isProductsLoading = false));
+  },
+  login({ state }, { login, password }) {
+    state.isLoginLoading = true;
+    axios
+      .post(`/auth/login`, {
+        username: login,
+        password: password
+      })
+      .then(result => {
+        if (result.data.access_token.length) {
+          localStorage.setItem("token", result.data.access_token);
+          router.push("/");
+        }
+      })
+      .catch(error => console.error(error))
+      .finally(() => (state.isLoginLoading = false));
+  },
+  logout() {
+    localStorage.removeItem("token");
   }
 };
