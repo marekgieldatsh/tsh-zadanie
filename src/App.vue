@@ -1,18 +1,15 @@
 <template>
   <div id="app">
-    <Header />
     <router-view />
     <Modal />
   </div>
 </template>
 
 <script>
-import Header from "@/components/Header.vue";
 import Modal from "@/components/Modal.vue";
 
 export default {
   components: {
-    Header,
     Modal
   }
 };

@@ -7,7 +7,7 @@
       <slot></slot>
     </span>
     <span class="dropdownContainer__dropdown" v-if="isOpen">
-      <span class="dropdownContainer__link" v-on:click="$emit('onClick')">{{
+      <span class="dropdownContainer__link" v-on:click="onClickLink()">{{
         text
       }}</span>
     </span>
@@ -38,6 +38,10 @@ export default {
     },
     closeDropdown() {
       this.isOpen = false;
+    },
+    onClickLink() {
+      this.closeDropdown();
+      this.$emit("onClick");
     }
   },
   directives: {
