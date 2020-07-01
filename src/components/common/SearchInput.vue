@@ -6,6 +6,7 @@
       :placeholder="placeholder"
       v-model="inputModel"
       :disabled="disabled"
+      autocomplete="on"
     />
     <span v-if="hasIcon" class="textInputContainer__icon">
       <slot></slot>

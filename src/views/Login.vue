@@ -3,22 +3,22 @@
     <div class="loginPage__imageWrapper">
       <img :src="require('../assets/login_image.png')" alt="Image" />
     </div>
-    <div class="loginPage__content">
+    <form class="loginPage__form">
       <Logo />
-      <div class="loginPage__content__title">
+      <div class="loginPage__form__title">
         <h1>Login</h1>
       </div>
-      <span class="loginPage__content__label">Username</span>
+      <label class="loginPage__form__label">Username</label>
       <SearchInput
-        class="loginPage__content__input"
+        class="loginPage__form__input"
         placeholder="Enter username"
         :value="login"
         @onChange="onChangeLogin"
         :disabled="$store.state.isLoginLoading"
       />
-      <span class="loginPage__content__label">Password</span>
+      <label class="loginPage__form__label">Password</label>
       <SearchInput
-        class="loginPage__content__input"
+        class="loginPage__form__input"
         placeholder="Enter password"
         :value="password"
         @onChange="onChangePassword"
@@ -26,17 +26,17 @@
         :disabled="$store.state.isLoginLoading"
       />
       <Button
-        class="loginPage__content__button"
+        class="loginPage__form__button"
         title="Log in"
         @onClick="onClickLogin()"
         :disabled="isButtonDisabled"
       />
       <router-link
-        class="loginPage__content__forgotPassword"
+        class="loginPage__form__forgotPassword"
         to="/passwordRecovery"
         >Forgot password?</router-link
       >
-    </div>
+    </form>
   </div>
 </template>
 
@@ -53,8 +53,8 @@ export default {
   },
   data() {
     return {
-      login: "user101",
-      password: "P@ssword"
+      login: "",
+      password: ""
     };
   },
   computed: {
@@ -103,7 +103,7 @@ export default {
     }
   }
 
-  &__content {
+  &__form {
     padding: rem(40px) rem(24px);
     display: flex;
     flex-direction: column;
