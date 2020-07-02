@@ -1,4 +1,5 @@
 module.exports = {
   preset: "@vue/cli-plugin-unit-jest",
-  transformIgnorePatterns: ["node_modules/(?!vue-spinner)"]
+  transformIgnorePatterns: ["node_modules/(?!vue-spinner)"],
+  setupFilesAfterEnv: ["./tests/unit/localStorageMock.js"]
 };
