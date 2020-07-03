@@ -21,10 +21,6 @@ export default {
       type: String,
       default: "Place some text here"
     },
-    value: {
-      type: String,
-      default: ""
-    },
     onChange: {
       type: Event
     },
