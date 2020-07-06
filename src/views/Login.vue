@@ -12,7 +12,6 @@
       <SearchInput
         class="loginPage__form__input"
         placeholder="Enter username"
-        :value="login"
         @onChange="onChangeLogin"
         :disabled="$store.state.isLoginLoading"
       />
@@ -20,7 +19,6 @@
       <SearchInput
         class="loginPage__form__input"
         placeholder="Enter password"
-        :value="password"
         @onChange="onChangePassword"
         type="password"
         :disabled="$store.state.isLoginLoading"

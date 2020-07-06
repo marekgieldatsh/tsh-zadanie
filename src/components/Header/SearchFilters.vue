@@ -3,7 +3,6 @@
     <SearchInput
       class="searchFilters__search"
       placeholder="Search"
-      :value="$store.state.phrase"
       @onChange="onSearchChange"
       type="search"
     >
