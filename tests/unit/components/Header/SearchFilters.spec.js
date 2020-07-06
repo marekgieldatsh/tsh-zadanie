@@ -2,6 +2,8 @@ import { shallowMount, createLocalVue } from "@vue/test-utils";
 import Vuex from "vuex";
 import SearchFilters from "@/components/Header/SearchFilters.vue";
 import SearchInput from "@/components/common/SearchInput.vue";
+import SearchIcon from "@/components/icons/SearchIcon.vue";
+import Checkbox from "@/components/common/Checkbox.vue";
 
 const localVue = createLocalVue();
 
@@ -37,8 +39,10 @@ describe("SearchFilters.vue", () => {
     wrapper = shallowMount(SearchFilters, { store, localVue });
   });
 
-  it("renders SearchInput component", () => {
+  it("renders custom comopnents components", () => {
     expect(wrapper.findComponent(SearchInput).exists()).toBe(true);
+    expect(wrapper.findComponent(SearchIcon).exists()).toBe(true);
+    expect(wrapper.findComponent(Checkbox).exists()).toBe(true);
   });
 
   it("calls onPhraseSearch action", async () => {

@@ -48,11 +48,9 @@ export default {
   },
   methods: {
     onErrorImage() {
-      console.log("Image error", true);
       this.imageError = true;
     },
     onCloseModal() {
-      console.log("clickOutside", true);
       this.$store.commit("setModalOff", {});
     }
   }
