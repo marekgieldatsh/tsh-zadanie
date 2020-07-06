@@ -51,7 +51,7 @@ describe("Modal.vue", () => {
     expect(text.text()).toMatch(/My_text/);
   });
 
-  it("renders close icon comopnent", () => {
+  it("renders close icon component", () => {
     expect(wrapper.findComponent(CloseIcon).exists()).toBe(true);
   });
 
